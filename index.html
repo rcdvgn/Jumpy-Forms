@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <title>Jumpy Forms</title>
+</head>
+<body>
+    <div>
+        <span id="email">E-mail</span>
+        <input id="inp" onfocus="focusin()" onfocusout="focusout()" spellcheck="false">
+        <div id="border"></div>
+    </div>
+
+    <script>
+        var span = document.getElementById("email");
+        var border = document.getElementById("border");
+        var inp = document.getElementById("inp");
+        function focusin(){
+            span.classList.add("onfocus");
+            border.classList.remove("border_off_focus");
+            span.classList.remove("header_off_focus");
+            border.classList.add("border_focus");
+        }
+        function focusout(){
+            if(inp.value.length == 0){
+                span.classList.remove("onfocus"); 
+                border.classList.remove("border_focus");
+            }
+            else{
+                border.classList.add("border_off_focus");
+                span.classList.add("header_off_focus");
+            }
+        }
+    </script>
+</body>
+</html>
